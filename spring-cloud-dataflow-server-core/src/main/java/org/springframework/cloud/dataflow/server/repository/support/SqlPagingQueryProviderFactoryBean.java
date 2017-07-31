@@ -25,12 +25,7 @@ import org.springframework.jdbc.support.MetaDataAccessException;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.H2;
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.HSQL;
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.MYSQL;
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.ORACLE;
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.POSTGRES;
-import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.SQLSERVER;
+import static org.springframework.cloud.dataflow.server.repository.support.DatabaseType.*;
 
 
 /**
@@ -62,6 +57,7 @@ public class SqlPagingQueryProviderFactoryBean implements FactoryBean<PagingQuer
 		providers.put(H2, new H2PagingQueryProvider());
 		providers.put(MYSQL, new MySqlPagingQueryProvider());
 		providers.put(POSTGRES, new PostgresPagingQueryProvider());
+		providers.put(EDB, new PostgresPagingQueryProvider());
 		providers.put(ORACLE, new OraclePagingQueryProvider());
 		providers.put(SQLSERVER, new SqlServerPagingQueryProvider());
 	}
